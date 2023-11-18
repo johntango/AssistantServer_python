@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Prompt for ChatGPT</title>
+<style>
+div {
+white-space: pre-wrap;
+white-space: -moz-pre-wrap;
+white-space: -pre-wrap;
+white-space: -o-pre-wrap;
+word-wrap: break-word;
+color: blue;
+}
+</style>
+<script>
+
+</script>
+
+</head>
+<body>
+  <h1>Assistant {{assistant_id}} Ready</h1>
+  <form action="/create_thread" method="post">
+    <button name="threadBtn" type="submit">Create Thread</button>
+  </form>
+  <form action="/create_message" method="post">
+        <input type="text" name="message" placeholder="Enter Message">
+        <button name="messageBtn" type="submit">Create Message</button>
+  </form>
+  <h3>Thread {{thread_id}} Ready</h3>
+  <h3>Message {{message_id}} Ready</h3>
+
+  <form id="promptForm" action = /sendGPT method="post">  
+    <input type="text" name="message" value="{{message_id}}">
+    <!-- button onclick submit form -->
+    <input type="submit" value="Submit">
+  </form>
+
+  <p>Server Response:</p>
+ 
+  <div id="response">GPT Response: To be defined</div>
+
+</body>
+</html>

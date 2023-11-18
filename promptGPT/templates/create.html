@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Prompt for ChatGPT</title>
+<style>
+div {
+white-space: pre-wrap;
+white-space: -moz-pre-wrap;
+white-space: -pre-wrap;
+white-space: -o-pre-wrap;
+word-wrap: break-word;
+color: blue;
+}
+</style>
+
+</head>
+<body>
+  <h1>Create Prompt for GPT</h1>
+  <form id="promptForm" action = /sendGPT method="get">  
+    <label for="topic">Topic:</label>
+    <input type="text" id="topic" name="topic"><br><br>
+
+    <label for="style">Style:</label>
+    <select id="style" name="style">
+      <option value="informal">Informal</option>
+      <option value="formal">Formal</option>
+      <option value="humorous">Humorous</option>
+      <!-- Add more styles here -->
+    </select><br><br>
+
+    <label for="tone">Tone:</label>
+    <select id="tone" name="tone">
+      <option value="positive">Positive</option>
+      <option value="neutral">Neutral</option>
+      <option value="negative">Negative</option>
+      <!-- Add more tones here -->
+    </select><br><br>
+
+    <label for="language">Language:</label>
+    <select id="language" name="language">
+      <option value="English">English</option>
+      <option value="Spanish">Spanish</option>
+      <option value="French">French</option>
+      <!-- Add more languages here -->
+    </select><br><br>
+
+    <!-- button onclick submit form -->
+    <input type="submit" value="Submit">
+    
+  </form>
+
+  <p>Server Response:</p>
+ 
+  <div id="response">GPT Response: {{msg.gptResponse}}</div>
+
+</body>
+</html>
