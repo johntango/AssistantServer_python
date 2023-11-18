@@ -19,6 +19,7 @@ from pathlib import Path
 # read key from json file
 # check if file exists locally
 data = {}
+list = {"assistant":" ","message": "", "thread": ''}
 try:
     with open('openai_key.json') as f:
         print(f'file exists locally')
@@ -56,25 +57,29 @@ def create_file(client):
 
 # web application
 app = Flask(__name__)
+# set the url for static
+app.static_url_path = 'static/'
+print(f'static url path {app.static_url_path}')
 # add data to database
 # this is where we read from the database
 @app.route('/')
 def index():
     #list = cursor.execute("SELECT * FROM prompts").fetchall()
     #assistant = create_assistant(client)
-
-    return render_template('actions.html', assistant_id = 'asst_pZB7ll8Nm6DJ7JLCRstb9XIf')
+    list = {"assistant": 'asst_pZB7ll8Nm6DJ7JLCRstb9XIf', "message": '', "thread": 'thrd_2Q2QQ2'}
+    return render_template('actions.html', list = list )
 
 @app.route('/create_thread',methods=['POST'])
 def create_thread():
     print("Button Clicked Create Thread")
-    return render_template('/actions.html',thread_id = 'thrd_2Q2Q2Q2Q2Q2Q2Q2Q2Q2Q2Q2')
+    list = {"message": 'xxx', "thread": 'thrd_2Q2QQ2'}
+    return render_template('/actions.html',list = list)
 
 @app.route('/create_message',methods=['POST'])
 def create_message():
     data = request.form['message']
-    print(f'Button Clicked Create Message{data}')
-    return render_template('/actions.html',message_id = data)
+    list = {"message": data, "thread": 'thrd_2Q2QQ2'}
+    return render_template('/actions.html',list = list)    
 
 
 # this is where we read from the database

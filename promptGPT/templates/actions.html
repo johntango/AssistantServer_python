@@ -12,13 +12,11 @@ word-wrap: break-word;
 color: blue;
 }
 </style>
-<script>
 
-</script>
-
+<img src= {{url_for('static', filename='SpeedOfLearning.png')}} width = '200',align="middle" />
 </head>
 <body>
-  <h1>Assistant {{assistant_id}} Ready</h1>
+  <h1>Assistant {{list["assistant"]  }} Ready</h1>
   <form action="/create_thread" method="post">
     <button name="threadBtn" type="submit">Create Thread</button>
   </form>
@@ -26,8 +24,8 @@ color: blue;
         <input type="text" name="message" placeholder="Enter Message">
         <button name="messageBtn" type="submit">Create Message</button>
   </form>
-  <h3>Thread {{thread_id}} Ready</h3>
-  <h3>Message {{message_id}} Ready</h3>
+  <h3>Thread {{list["thread"]}} Ready</h3>
+  <h3>Message {{list["message"]}} Ready</h3>
 
   <form id="promptForm" action = /sendGPT method="post">  
     <input type="text" name="message" value="{{message_id}}">
